@@ -10,7 +10,7 @@ GLfloat obsX_ini, obsY_ini, obsZ_ini, rotX_ini, rotY_ini;
 GLfloat escalaX, escalaY, escalaZ;
 #define SENS_ROT 10.0
 #define SENS_OBS 10.0
-#define SENS_TRANS 10.0   
+constexpr auto SENS_TRANS = 10.0;
 static bool fp = false;
 static bool fj = false;
 static double a = 0;
@@ -24,7 +24,6 @@ void Desenha(void)
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	
 	/*
 	   glPushMatrix();
 		   glColor3f(0.9, 0.9, 0.9);
@@ -50,12 +49,12 @@ void Desenha(void)
 		   glEnd();
 	   glPopMatrix();
 	   */
-	   // DESENHANDO O CH�O 
+	   // DESENHANDO O CH�O
 
 	glPushMatrix();
 	glColor3f(0.3, 0.0, 0.1);
 	glBegin(GL_QUADS);
-	glVertex3f(-10.0, -0.01, -10.0);  //DESENHAR O PONTO D 
+	glVertex3f(-10.0, -0.01, -10.0);  //DESENHAR O PONTO D
 	glVertex3f(50.0, -0.01, -10.0);  // DESENHAR O PONTO B
 	glVertex3f(50.0, -0.01, 50.0);  // DESENHAR O PONTO C
 	glVertex3f(-10.0, -0.01, 50.0);  // DESENHAR O PONTO A
@@ -78,7 +77,6 @@ void Desenha(void)
 	glEnd();
 	glPopMatrix();
 
-
 	glPushMatrix(); // FAZER A LINHA 3
 	glColor3f(0.0, 0.0, 0.0); //LINHA  C --- A
 	glBegin(GL_LINES);
@@ -87,14 +85,13 @@ void Desenha(void)
 	glEnd();
 	glPopMatrix();
 
-	glPushMatrix(); // FAZER A LINHA 4 
+	glPushMatrix(); // FAZER A LINHA 4
 	glColor3f(0.0, 0.0, 0.0);  //LINHA  A --- D
 	glBegin(GL_LINES);
 	glVertex3f(0.0, 0.0, 3.0);
 	glVertex3f(0.0, 0.0, 0.0);
 	glEnd();
 	glPopMatrix();
-
 
 	// DESENHANDO O CH�O TOTAL - C , E , F, A , G , B
 
@@ -106,11 +103,9 @@ void Desenha(void)
 	glVertex3f(20.0, 0.0, 8.0);  // DESENHAR O PONTO G
 	glVertex3f(8.0, 0.0, 8.0);  // DESENHAR O PONTO F
 	glVertex3f(8.0, 0.0, 15.0);  // DESENHAR O PONTO E
-	glVertex3f(0.0, 0.0, 15.0);  //DESENHAR O PONTO C 	    	
+	glVertex3f(0.0, 0.0, 15.0);  //DESENHAR O PONTO C
 	glEnd();
 	glPopMatrix();
-
-
 
 	glPushMatrix(); // FAZER A LINHA 1
 	glColor3f(0.0, 0.0, 0.0);  //LINHA A --- B
@@ -145,7 +140,7 @@ void Desenha(void)
 	glPopMatrix();
 
 	glPushMatrix(); // FAZER A LINHA 5
-	glColor3f(0.0, 0.0, 0.0);  //LINHA E --- 
+	glColor3f(0.0, 0.0, 0.0);  //LINHA E ---
 	glBegin(GL_LINES);
 	glVertex3f(8.0, 0.0, 15.0);
 	glVertex3f(0.0, 0.0, 15.0);
@@ -160,23 +155,19 @@ void Desenha(void)
 	glEnd();
 	glPopMatrix();
 
-
-	// CH�O 2 ANDAR 
+	// CH�O 2 ANDAR
 
 	glPushMatrix();
 	glColor3f(3.0, 3.3, 0.1);
 	glBegin(GL_POLYGON);
-	glVertex3f(0.0, 10.0, 0.0);  // DESENHAR O PONTO 
-	glVertex3f(20.0, 10.0, 0.0);  // DESENHAR O PONTO 
-	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO 
+	glVertex3f(0.0, 10.0, 0.0);  // DESENHAR O PONTO
+	glVertex3f(20.0, 10.0, 0.0);  // DESENHAR O PONTO
+	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO ''
-	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO 
-	glVertex3f(0.0, 10.0, 15.0);  // DESENHAR O PONTO 
+	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO
+	glVertex3f(0.0, 10.0, 15.0);  // DESENHAR O PONTO
 	glEnd();
 	glPopMatrix();
-
-
-
 
 	// DESENHANDO A PAREDE TOTAL - C A D N
 
@@ -188,7 +179,7 @@ void Desenha(void)
 	glVertex3f(20.0, 20.0, 0.0);  // DESENHAR O PONTO P
 	glVertex3f(0.0, 20.0, 0.0);  // DESENHAR O PONTO D
 	glVertex3f(0.0, 20.0, 15.0);  // DESENHAR O PONTO N
-	glVertex3f(0.0, 0.0, 15.0);  // DESENHAR O PONTO C		    	
+	glVertex3f(0.0, 0.0, 15.0);  // DESENHAR O PONTO C
 	glEnd();
 	glPopMatrix();
 
@@ -240,13 +231,12 @@ void Desenha(void)
 	glEnd();
 	glPopMatrix();
 
-
 	// PAREDE LATERAL - L , P , K , O , G , B
 
 	glPushMatrix();
 	glColor3f(0.8, 0.0, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0, 0.0, 0.0);  // DESENHAR O PONTO B 
+	glVertex3f(20.0, 0.0, 0.0);  // DESENHAR O PONTO B
 	glVertex3f(20.0, 10.0, 0.0);  // DESENHAR O PONTO P
 	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO L
 	glVertex3f(20.0, 0.0, 8.0);  // DESENHAR O PONTO G
@@ -256,7 +246,7 @@ void Desenha(void)
 	glPushMatrix();
 	glColor3f(0.8, 0.0, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0, 10.0, 3.0);  // DESENHAR O PONTO B 
+	glVertex3f(20.0, 10.0, 3.0);  // DESENHAR O PONTO B
 	glVertex3f(20.0, 20.0, 3.0);  // DESENHAR O PONTO P
 	glVertex3f(20.0, 20.0, 0.0);  // DESENHAR O PONTO L
 	glVertex3f(20.0, 10.0, 0.0);  // DESENHAR O PONTO G
@@ -266,7 +256,7 @@ void Desenha(void)
 	glPushMatrix();
 	glColor3f(0.8, 0.0, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0, 10.0, 5.0);  // DESENHAR O PONTO B 
+	glVertex3f(20.0, 10.0, 5.0);  // DESENHAR O PONTO B
 	glVertex3f(20.0, 20.0, 5.0);  // DESENHAR O PONTO P
 	glVertex3f(20.0, 20.0, 8.0);  // DESENHAR O PONTO L
 	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO G
@@ -276,15 +266,14 @@ void Desenha(void)
 	glPushMatrix();
 	glColor3f(0.8, 0.0, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0, 15.0, 3.0);  // DESENHAR O PONTO B 
+	glVertex3f(20.0, 15.0, 3.0);  // DESENHAR O PONTO B
 	glVertex3f(20.0, 20.0, 3.0);  // DESENHAR O PONTO P
 	glVertex3f(20.0, 20.0, 5.0);  // DESENHAR O PONTO L
 	glVertex3f(20.0, 15.0, 5.0);  // DESENHAR O PONTO G
 	glEnd();
 	glPopMatrix();
 
-
-	// PAREDE TODA + PORTA - M , C , ... , K , 
+	// PAREDE TODA + PORTA - M , C , ... , K ,
 
 	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
@@ -292,7 +281,7 @@ void Desenha(void)
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO F'
 	glVertex3f(8.0, 0.0, 8.0);  // DESENHAR O PONTO F
 	glVertex3f(8.0, 0.0, 10.0);  // DESENHAR O PONTO E''
-	glVertex3f(8.0, 7.0, 10.0);  // DESENHAR O PONTO E'''    	
+	glVertex3f(8.0, 7.0, 10.0);  // DESENHAR O PONTO E'''
 	glEnd();
 	glPopMatrix();
 
@@ -302,7 +291,7 @@ void Desenha(void)
 	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO I
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO F'
 	glVertex3f(8.0, 7.0, 10.0);  // DESENHAR O PONTO E'''
-	glVertex3f(8.0, 7.0, 13.0);  // DESENHAR O PONTO E''''		    	
+	glVertex3f(8.0, 7.0, 13.0);  // DESENHAR O PONTO E''''
 	glEnd();
 	glPopMatrix();
 
@@ -312,12 +301,11 @@ void Desenha(void)
 	glVertex3f(8.0, 0.0, 15.0);  // DESENHAR O PONTO E
 	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO I
 	glVertex3f(8.0, 7.0, 13.0);  // DESENHAR O PONTO E''''
-	glVertex3f(8.0, 0.0, 13.0);  // DESENHAR O PONTO E'			    	
+	glVertex3f(8.0, 0.0, 13.0);  // DESENHAR O PONTO E'
 	glEnd();
 	glPopMatrix();
 
-
-	// PAREDE EM CIMA DA PORTA 
+	// PAREDE EM CIMA DA PORTA
 
 	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
@@ -328,8 +316,6 @@ void Desenha(void)
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO F'
 	glEnd();
 	glPopMatrix();
-
-
 
 	// PAREDE LADO 2 - C M , I , E
 
@@ -351,7 +337,7 @@ void Desenha(void)
 	glVertex3f(0.0, 10.0, 15.0);  // DESENHAR O PONTO M
 	glVertex3f(0.0, 20.0, 15.0);  // DESENHAR O PONTO N
 	glVertex3f(2.0, 18.0, 15.0);  // DESENHAR O PONTO M'''
-	glVertex3f(2.0, 14.0, 15.0);  // DESENHAR O PONTO M'				    	
+	glVertex3f(2.0, 14.0, 15.0);  // DESENHAR O PONTO M'
 	glEnd();
 	glPopMatrix();
 
@@ -360,8 +346,8 @@ void Desenha(void)
 	glBegin(GL_POLYGON);
 	glVertex3f(0.0, 20.0, 15.0);  // DESENHAR O PONTO N
 	glVertex3f(8.0, 20.0, 15.0);  // DESENHAR O PONTO J
-	glVertex3f(6.0, 18.0, 15.0);  // DESENHAR O PONTO M''''            
-	glVertex3f(2.0, 18.0, 15.0);  // DESENHAR O PONTO M'''				    	
+	glVertex3f(6.0, 18.0, 15.0);  // DESENHAR O PONTO M''''
+	glVertex3f(2.0, 18.0, 15.0);  // DESENHAR O PONTO M'''
 	glEnd();
 	glPopMatrix();
 
@@ -370,11 +356,10 @@ void Desenha(void)
 	glBegin(GL_POLYGON);
 	glVertex3f(8.0, 20.0, 15.0);  // DESENHAR O PONTO J
 	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO I
-	glVertex3f(6.0, 14.0, 15.0);  // DESENHAR O PONTO M''            
-	glVertex3f(6.0, 18.0, 15.0);  // DESENHAR O PONTO M''''				    	
+	glVertex3f(6.0, 14.0, 15.0);  // DESENHAR O PONTO M''
+	glVertex3f(6.0, 18.0, 15.0);  // DESENHAR O PONTO M''''
 	glEnd();
 	glPopMatrix();
-
 
 	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
@@ -382,10 +367,9 @@ void Desenha(void)
 	glVertex3f(8.0, 10.0, 15.0);  // DESENHAR O PONTO I
 	glVertex3f(0.0, 10.0, 15.0);  // DESENHAR O PONTO M
 	glVertex3f(2.0, 14.0, 15.0);  // DESENHAR O PONTO M'
-	glVertex3f(6.0, 14.0, 15.0);  // DESENHAR O PONTO M'' 			    	
+	glVertex3f(6.0, 14.0, 15.0);  // DESENHAR O PONTO M''
 	glEnd();
 	glPopMatrix();
-
 
 	// PAREDE ABAIXO DA JANELA 2
 
@@ -399,9 +383,7 @@ void Desenha(void)
 	glEnd();
 	glPopMatrix();
 
-
 	// JANELA 2
-
 
 	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
@@ -409,7 +391,7 @@ void Desenha(void)
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO F'
 	glVertex3f(8.0, 20.0, 8.0);  //DESENHAR O PONTO F''
 	glVertex3f(10.0, 17.0, 8.0);  // DESENHAR O PONTO T
-	glVertex3f(10.0, 13.0, 8.0);  // DESENHAR O PONTO Q			    	
+	glVertex3f(10.0, 13.0, 8.0);  // DESENHAR O PONTO Q
 	glEnd();
 	glPopMatrix();
 
@@ -419,7 +401,7 @@ void Desenha(void)
 	glVertex3f(8.0, 20.0, 8.0);  //DESENHAR O PONTO F''
 	glVertex3f(20.0, 20.0, 8.0);  // DESENHAR O PONTO L
 	glVertex3f(17.0, 17.0, 8.0);  // DESENHAR O PONTO S
-	glVertex3f(10.0, 17.0, 8.0);  // DESENHAR O PONTO T 		    	
+	glVertex3f(10.0, 17.0, 8.0);  // DESENHAR O PONTO T
 	glEnd();
 	glPopMatrix();
 
@@ -427,12 +409,11 @@ void Desenha(void)
 	glColor3f(0.0, 0.0, 1.0);
 	glBegin(GL_POLYGON);
 	glVertex3f(20.0, 20.0, 8.0);  // DESENHAR O PONTO L
-	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO K	
+	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO K
 	glVertex3f(17.0, 13.0, 8.0);  // DESENHAR O PONTO R
-	glVertex3f(17.0, 17.0, 8.0);  // DESENHAR O PONTO S      		    	
+	glVertex3f(17.0, 17.0, 8.0);  // DESENHAR O PONTO S
 	glEnd();
 	glPopMatrix();
-
 
 	glPushMatrix();
 	glColor3f(0.0, 0.0, 1.0);
@@ -440,7 +421,7 @@ void Desenha(void)
 	glVertex3f(20.0, 10.0, 8.0);  // DESENHAR O PONTO K
 	glVertex3f(8.0, 10.0, 8.0);  // DESENHAR O PONTO F'
 	glVertex3f(10.0, 13.0, 8.0);  // DESENHAR O PONTO Q
-	glVertex3f(17.0, 13.0, 8.0);  // DESENHAR O PONTO R	
+	glVertex3f(17.0, 13.0, 8.0);  // DESENHAR O PONTO R
 	glEnd();
 	glPopMatrix();
 
@@ -475,7 +456,6 @@ void Desenha(void)
 	glVertex3f(8.0, 20.0, 15.0);  // DESENHAR O PONTO J
 	glEnd();
 	glPopMatrix();
-
 
 	glPushMatrix(); // FAZER A LINHA , TETO PARTE "BAIXO"
 	glColor3f(0.0, 0.0, 0.0);
@@ -538,7 +518,7 @@ void Desenha(void)
 
 	glPopMatrix();
 
-	// GARAGEM	
+	// GARAGEM
 
 	glPushMatrix(); // TETO DE GARAGEM
 	glColor3f(3.8, 0.0, 1.1);
@@ -562,7 +542,6 @@ void Desenha(void)
 	  gluCylinder(quadratic,3.1f,3.1f,8.0f,32,32);
 
 	  */
-
 
 	glMatrixMode(GL_MODELVIEW);
 	glPushMatrix(); // FAZER CILINDRO
@@ -605,7 +584,6 @@ void Desenha(void)
 
 	glPopMatrix();
 
-
 	//FAZER TEAPOT "IF YOU PUT WATER INTO A TEAPOT, IT BECOME A TEAPOT, BE WATER MY FRIEND"
 
 	glPushMatrix();
@@ -614,9 +592,7 @@ void Desenha(void)
 	glutSolidTeapot(.5);
 	glPopMatrix();
 
-
 	//PORTAS////////////////////////////////////////////////////////
-
 
 	glPushMatrix();	    //porta1
 	glTranslatef(8.0, 0.0, 13.0);
@@ -626,7 +602,7 @@ void Desenha(void)
 	glTranslatef(-8.0, 0.0, -13.0);
 	glColor3f(0.8, 0.9, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(8.0, 7.0, 13.0);  // DESENHAR O PONTO B 
+	glVertex3f(8.0, 7.0, 13.0);  // DESENHAR O PONTO B
 	glVertex3f(8.0, 7.0, 10.0);  // DESENHAR O PONTO P
 	glVertex3f(8.0, 0.0, 10.0);  // DESENHAR O PONTO G
 	glVertex3f(8.0, 0.0, 13.0);  // DESENHAR O PONTO L
@@ -643,7 +619,7 @@ void Desenha(void)
 	glTranslatef(-20.0, -10.0, -5.0);
 	glColor3f(0.8, 0.9, 1.1);
 	glBegin(GL_QUADS);
-	glVertex3f(20.0, 10.0, 3.0);  // DESENHAR O PONTO B 
+	glVertex3f(20.0, 10.0, 3.0);  // DESENHAR O PONTO B
 	glVertex3f(20.0, 10.0, 5.0);  // DESENHAR O PONTO P
 	glVertex3f(20.0, 15.0, 5.0);  // DESENHAR O PONTO L
 	glVertex3f(20.0, 15.0, 3.0);  // DESENHAR O PONTO G
@@ -659,7 +635,7 @@ void Desenha(void)
 	glPushMatrix();	    //janela1
 	glColor4f(0.8, 0.9, 1.1, 0.8);
 	glBegin(GL_QUADS);
-	glVertex3f(2.0, 18.0, 15.0);  // DESENHAR O PONTO B 
+	glVertex3f(2.0, 18.0, 15.0);  // DESENHAR O PONTO B
 	glVertex3f(4.0, 18.0, 15.0);  // DESENHAR O PONTO P
 	glVertex3f(4.0, 14.0, 15.0);  // DESENHAR O PONTO G
 	glVertex3f(2.0, 14.0, 15.0);  // DESENHAR O PONTO L
@@ -670,19 +646,17 @@ void Desenha(void)
 	glTranslatef(-(6 - 4) * (b / 100), 0.0, 0.0);
 	glColor4f(0.8, 0.9, 1.1, 0.8);
 	glBegin(GL_QUADS);
-	glVertex3f(4.0, 18.0, 15.0);  // DESENHAR O PONTO B 
+	glVertex3f(4.0, 18.0, 15.0);  // DESENHAR O PONTO B
 	glVertex3f(6.0, 18.0, 15.0);  // DESENHAR O PONTO P
 	glVertex3f(6.0, 14.0, 15.0);  // DESENHAR O PONTO G
 	glVertex3f(4.0, 14.0, 15.0);  // DESENHAR O PONTO L
 	glEnd();
 	glPopMatrix();
 
-
-
 	glPushMatrix();	    //janela2
 	glColor4f(0.8, 0.9, 1.1, 0.8);
 	glBegin(GL_QUADS);
-	glVertex3f(10.0, 17.0, 8.0);  // DESENHAR O PONTO B 
+	glVertex3f(10.0, 17.0, 8.0);  // DESENHAR O PONTO B
 	glVertex3f(14.0, 17.0, 8.0);  // DESENHAR O PONTO P
 	glVertex3f(14.0, 13.0, 8.0);  // DESENHAR O PONTO G
 	glVertex3f(10.0, 13.0, 8.0);  // DESENHAR O PONTO L
@@ -693,7 +667,7 @@ void Desenha(void)
 	glTranslatef(-(17 - 13) * (b / 100), 0.0, 0.0);
 	glColor4f(0.8, 0.9, 1.1, 0.8);
 	glBegin(GL_QUADS);
-	glVertex3f(14.0, 17.0, 8.0);  // DESENHAR O PONTO B 
+	glVertex3f(14.0, 17.0, 8.0);  // DESENHAR O PONTO B
 	glVertex3f(17.0, 17.0, 8.0);  // DESENHAR O PONTO P
 	glVertex3f(17.0, 13.0, 8.0);  // DESENHAR O PONTO G
 	glVertex3f(14.0, 13.0, 8.0);  // DESENHAR O PONTO L
@@ -707,8 +681,8 @@ void Desenha(void)
 void Inicializa(void)
 {
 	GLfloat luzAmbiente[4] = { 0.2,0.2,0.2,1.0 };
-	GLfloat luzDifusa[4] = { 0.7,0.7,0.7,1.0 };		 // "cor" 
-	GLfloat luzEspecular[4] = { 1.0, 1.0, 1.0, 1.0 };// "brilho" 
+	GLfloat luzDifusa[4] = { 0.7,0.7,0.7,1.0 };		 // "cor"
+	GLfloat luzEspecular[4] = { 1.0, 1.0, 1.0, 1.0 };// "brilho"
 	GLfloat posicaoLuz[4] = { 0.0, 20.0, 20.0, 1.0 };
 
 	// Capacidade de brilho do material
@@ -721,12 +695,12 @@ void Inicializa(void)
 	// Habilita o modelo de coloriza��o de Gouraud
 	glShadeModel(GL_SMOOTH);
 
-	// Define a reflet�ncia do material 
+	// Define a reflet�ncia do material
 	glMaterialfv(GL_FRONT, GL_SPECULAR, especularidade);
 	// Define a concentra��o do brilho
 	glMateriali(GL_FRONT, GL_SHININESS, especMaterial);
 
-	// Ativa o uso da luz ambiente 
+	// Ativa o uso da luz ambiente
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente);
 
 	// Define os par�metros da luz de n�mero 0
@@ -777,7 +751,7 @@ void EspecificaParametrosVisualizacao(void) //equivalente ao posiciona observado
 	glRotatef(rotY, 0, 1, 0);
 }
 
-// Fun��o callback chamada quando o tamanho da janela � alterado 
+// Fun��o callback chamada quando o tamanho da janela � alterado
 void AlteraTamanhoJanela(GLsizei w, GLsizei h)
 {
 	// Para previnir uma divis�o por zero
@@ -840,7 +814,6 @@ void motion(int x, int y) {
 	glutPostRedisplay();
 }
 
-
 void keyboard(unsigned char key, int x, int y)
 {
 	switch (key) {
@@ -893,4 +866,3 @@ int main(int argc, char** argv)
 	Inicializa();
 	glutMainLoop();
 }
-
